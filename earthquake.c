@@ -13,22 +13,22 @@
 
 #define MAX_EVENTS 10000
 #define MAGNITUDE_THRESHOLD 5.0
-#define PREDICTION_WINDOW 7  // Predict within 7 days
+#define PREDICTION_WINDOW 7 
 #define BUFFER_SIZE 1024
 #define LOG_FILE "seismic_events.txt"
 
-// Structure to hold seismic event data
+
 typedef struct {
     float magnitude;
     char location[256];
     time_t timestamp;
 } SeismicEvent;
 
-// Global array to store seismic event data
+
 SeismicEvent seismic_events[MAX_EVENTS];
 int event_count = 0;
 
-// Function declarations
+
 void log_seismic_event(float magnitude, const char *location);
 void record_seismic_event(float magnitude, const char *location);
 void analyze_seismic_activity();
@@ -40,27 +40,27 @@ void print_event(SeismicEvent *event);
 void write_logs_to_file();
 void read_logs_from_file();
 
-// Main function to control the flow of the simulation
+
 int main() {
     srand(time(NULL));
     read_logs_from_file();  // Read previously logged data from file
 
-    // Simulate the recording of seismic events
+   
     for (int i = 0; i < 500; i++) {
         generate_random_seismic_data();
         sleep(1);  // Simulate delay between seismic events
     }
 
-    // Analyze the recorded seismic activity
+    
     analyze_seismic_activity();
 
-    // Make a prediction based on the analysis
+    
     make_prediction();
 
     return 0;
 }
 
-// Function to log a seismic event to the file and store it in the array
+
 void log_seismic_event(float magnitude, const char *location) {
     if (event_count < MAX_EVENTS) {
         seismic_events[event_count].magnitude = magnitude;
@@ -69,7 +69,7 @@ void log_seismic_event(float magnitude, const char *location) {
 
         event_count++;
 
-        // Log to file
+        
         FILE *log_file = fopen(LOG_FILE, "a");
         if (log_file != NULL) {
             fprintf(log_file, "%.2f %s %ld\n", magnitude, location, seismic_events[event_count - 1].timestamp);
@@ -78,13 +78,13 @@ void log_seismic_event(float magnitude, const char *location) {
     }
 }
 
-// Function to record seismic event
+
 void record_seismic_event(float magnitude, const char *location) {
     log_seismic_event(magnitude, location);
     printf("Recorded Seismic Event: Magnitude=%.2f, Location=%s\n", magnitude, location);
 }
 
-// Function to analyze seismic activity based on past data
+
 void analyze_seismic_activity() {
     int high_magnitude_count = 0;
     int total_events = 0;
@@ -102,7 +102,7 @@ void analyze_seismic_activity() {
     printf("Percentage of High Magnitude Events: %.2f%%\n", ((float)high_magnitude_count / total_events) * 100);
 }
 
-// Function to simulate earthquake prediction (very simple)
+
 void make_prediction() {
     int high_magnitude_count = 0;
     int recent_events = 0;
@@ -133,7 +133,7 @@ void make_prediction() {
     }
 }
 
-// Function to generate random seismic data (magnitude and location)
+
 void generate_random_seismic_data() {
     float magnitude = generate_random_magnitude(4.0, 9.0);  // Random magnitude between 4.0 and 9.0
     char location[256];
