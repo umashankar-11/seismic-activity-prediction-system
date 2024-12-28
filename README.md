@@ -24,18 +24,18 @@ To compile and run this project, you need a C/C++ development environment. You w
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/seismic-prediction.git
-   cd seismic-prediction
+   git clone https://github.com/umashankar-11//seismic-activity-prediction-system-using-c-language.git
+   cd seismic-activity-prediction-system-using-c-language
    ```
 
 2. Compile the code using a C/C++ compiler (such as `gcc` or `g++`):
    ```bash
-   gcc -o seismic_prediction seismic_prediction.c -lm
+   gcc -o earthquake.c
    ```
 
 3. Run the executable:
    ```bash
-   ./seismic_prediction
+   .//seismic-activity-prediction-system-using-c-language
    ```
 
 ## How It Works
