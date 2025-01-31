@@ -76,3 +76,5 @@ Recent Events within the last 7 days: 30
 High Magnitude Events: 15
 Prediction: A strong earthquake is more likely in the coming days!
 ```
+OUTPUT
+<img width="910" alt="Output" src="https://github.com/user-attachments/assets/0d02f82c-797f-4f6b-a9c4-c9c6dabc9ba5" />
