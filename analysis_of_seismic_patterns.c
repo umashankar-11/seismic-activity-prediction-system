@@ -133,7 +133,7 @@ void delay_ms(int ms) {
 }
 
 void print_separator() {
-    printf("----------------------------------------\n");
+    printf("seismic activity prediction\n");
 }
 
 void display_event_log(EventLog *log) {
@@ -201,15 +201,13 @@ void analyze_event_patterns(EventLog *log) {
     printf("\nAnalyzing Seismic Event Patterns...\n");
     print_separator();
     
-    // Example: Detecting if the events are clustered in time (based on timestamp)
     for (int i = 1; i < log->event_count; i++) {
         float time_diff = log->event_data[i].timestamp - log->event_data[i-1].timestamp;
-        if (time_diff < 1.0f) {  // Events within 1 second are considered clustered
+        if (time_diff < 1.0f) {  
             printf("Cluster Detected: Event %d and Event %d are clustered!\n", i, i+1);
         }
     }
     
-    // Detect pattern of peak events
     for (int i = 0; i < log->event_count; i++) {
         if (log->event_data[i].magnitude > PEAK_DETECTION_THRESHOLD) {
             printf("Peak Event Detected: Event %d with Magnitude: %.2f V\n", i+1, log->event_data[i].magnitude);
