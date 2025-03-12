@@ -147,7 +147,7 @@ void delay_ms(int ms) {
 }
 
 void print_separator() {
-    printf("----------------------------------------\n");
+    printf("seismic activity \n");
 }
 
 void display_event_log(EventLog *log) {
